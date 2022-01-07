@@ -1,0 +1,33 @@
+@{
+  Layout = "_Layout";
+}
+
+@model Factory.Models.Engineer;
+
+<h1>Dr. Sillystringz's Factory</h1>
+<hr />
+<h2>Engineer Details</h2>
+
+<h4>First Name: @Html.DisplayFor(model => model.FirstName)</h4>
+<h4>Last Name: @Html.DisplayFor(model => model.LastName)</h4>
+<h4>Title: @Html.DisplayFor(model => model.Title)</h4>
+
+@if (@Model.JoinEntities.Count == 0)
+{
+  <p>This engineer hasn't been licensed to repair any machines.</p>
+}
+else
+{
+  <h4>Licensed to repair:</h4>
+  <ul>
+    @foreach(var join in @Model.JoinEntities)
+    {
+      <li>@join.Machine.Name</li>
+      @using (Html.BeginForm("DeleteMachine", "Engineers"))
+      {
+        @Html.Hidden("engineerId", @Model.EngineerId)
+        <button type="submit" value="Delete" class="btn btn-danger">Delete</button>
+      }
+    }
+  </ul>
+}
