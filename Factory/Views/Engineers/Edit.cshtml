@@ -24,6 +24,12 @@
   @Html.Label("Select a machine")
   @Html.DropDownList("MachineId")
   <br>
+  @Html.LabelFor(model => model.Status, "Status:")
+  <br>
+  @foreach (var status in Model.StatusOptions)
+  {
+    @Html.RadioButtonFor(model => model.Status, status) @status<br>
+  }
   <button type="submit" value="Save" class="btn btn-primary">Save</button>
 }
 
