@@ -17,6 +17,8 @@ namespace Factory.Models
       get { return FirstName + " " + LastName; }
     }
     public string Title { get; set; }
+
+    public string Status { get; set; }
     public virtual ICollection<MachineEngineer> JoinEntities { get; }
   }
 }
