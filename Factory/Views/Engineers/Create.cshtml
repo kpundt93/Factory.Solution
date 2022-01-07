@@ -1,0 +1,29 @@
+@{
+  Layout = "_Layout";
+}
+
+@model Factory.Models.Engineer;
+
+<h1>Dr. Sillystringz's Factory</h1>
+<hr/>
+<h3>Add a new engineer</h3>
+
+@using (Html.BeginForm())
+{
+  @Html.LabelFor(model => model.FirstName, "First Name")
+  @Html.TextBoxFor(model => model.FirstName)
+  <br>
+  @Html.LabelFor(model => model.LastName, "Last Name")
+  @Html.TextBoxFor(model => model.LastName)
+  <br>
+  @Html.LabelFor(model => model.Title)
+  @Html.TextBoxFor(model => model.Title)
+  <br>
+  @Html.Label("Select a machine")
+  @Html.DropDownList("MachineId")
+  <br>
+  <button type="submit" value="Create" class="btn btn-primary">Create</button>
+}
+
+<p>@Html.ActionLink("Back to all engineers", "Index")</p>
+<p>@Html.ActionLink("Home", "Index", "Home")</p>
