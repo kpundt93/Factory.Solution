@@ -23,7 +23,6 @@ namespace Factory.Controllers
 
     public ActionResult Create()
     {
-      ViewBag.MachineId = new SelectList(_db.Machines, "MachineId", "Description");
       return View();
     }
 
@@ -31,11 +30,6 @@ namespace Factory.Controllers
     public ActionResult Create(Engineer engineer, int MachineId)
     {
       _db.Engineers.Add(engineer);
-      _db.SaveChanges();
-      if (MachineId != 0)
-      {
-        _db.MachineEngineers.Add(new MachineEngineer() { MachineId = MachineId, EngineerId = engineer.EngineerId });
-      }
       _db.SaveChanges();
       return RedirectToAction("Index");
     }
