@@ -19,6 +19,7 @@ namespace Factory.Models
     public string Title { get; set; }
 
     public string Status { get; set; }
+    public string[] StatusOptions = new[] { "Idle", "Active" };
     public virtual ICollection<MachineEngineer> JoinEntities { get; }
   }
 }
