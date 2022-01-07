@@ -26,6 +26,7 @@ else
       @using (Html.BeginForm("DeleteMachine", "Engineers"))
       {
         @Html.Hidden("engineerId", @Model.EngineerId)
+        @Html.Hidden("joinId", @join.MachineEngineerId)
         <button type="submit" value="Delete" class="btn btn-danger">Delete</button>
       }
     }
