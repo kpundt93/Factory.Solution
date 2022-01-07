@@ -13,6 +13,7 @@ namespace Factory.Models
     public string Name { get; set; }
     public string Description { get; set; }
     public string Status { get; set; }
+    public string[] StatusOptions = new[] { "Operational", "Malfunctioning", "Being repaired" };
     public virtual ICollection<MachineEngineer> JoinEntities { get; }
   }
 }
