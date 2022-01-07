@@ -21,9 +21,6 @@
   @Html.LabelFor(model => model.Title)
   @Html.EditorFor(model => model.Title)
   <br>
-  @Html.Label("Select a machine")
-  @Html.DropDownList("MachineId")
-  <br>
   @Html.LabelFor(model => model.Status, "Status:")
   <br>
   @foreach (var status in Model.StatusOptions)
