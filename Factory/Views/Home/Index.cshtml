@@ -2,6 +2,35 @@
   Layout = "_Layout";
 }
 
+@using Factory.Models;
+
 <h1>Welcome to Dr. Sillystringz's Factory!</h1>
+
+<h2>Current Engineers</h2>
+@if (((List<Factory.Models.Engineer>)ViewData["engineers"]).Count == 0)
+{
+  <p>Dr. Sillystringz hasn't hired any engineers yet!</p>
+}
+else
+{
+  @foreach (Engineer engineer in (List<Factory.Models.Engineer>)ViewData["engineers"])
+  {
+    <li>@Html.ActionLink($"{engineer.FullName}", "Details", "Engineers", new { id = engineer.EngineerId })</li>
+  }
+}
+
+<h2>Current Machines</h2>
+@if (((List<Factory.Models.Machine>)ViewData["machines"]).Count == 0)
+{
+  <p>Dr. Sillystringz hasn't installed any machines yet!</p>
+}
+else
+{
+  @foreach (Machine machine in (List<Factory.Models.Machine>)ViewData["machines"])
+  {
+    <li>@Html.ActionLink($"{machine.Name}", "Details", "Machines", new { id = machine.MachineId })</li>
+  }
+}
+
 <p>@Html.ActionLink("See all engineers", "Index", "Engineers")</p>
 <p>@Html.ActionLink("See all machines", "Index", "Machines")</p>
