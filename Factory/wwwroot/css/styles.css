@@ -24,6 +24,7 @@ a {
 
 button {
   color: white;
+  margin-bottom: 0.5em;
 }
 
 button a, button a:hover {
